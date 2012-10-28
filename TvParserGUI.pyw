@@ -23,7 +23,7 @@ class Form(QtGui.QDialog):
         self.lineedit = QtGui.QLineEdit(dt.strftime('%d.%m.%Y'))
         self.offset_label = QtGui.QLabel(u'Часовой сдвиг: ')
         self.timeoffset = QtGui.QLineEdit('+1')
-        self.timeoffset.setMaximumSize(QtCore.QSize(50, 16777215))
+        self.timeoffset.setMaximumSize(QtCore.QSize(50, 16777215)) # 16777215 - qt designer's magic number
         self.lineedit.selectAll()
         self.browser = QtGui.QTextBrowser()
         layout = QtGui.QVBoxLayout()
