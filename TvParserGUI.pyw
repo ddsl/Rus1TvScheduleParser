@@ -16,7 +16,7 @@ class Form(QtGui.QDialog):
         """
         Create GUI
         """
-        #super(Form, self).__init__(parent) #убрал ибо ругалось на метод super
+        #super(Form, self).__init__(parent) # pycharm issue with old/new style class
         QtGui.QDialog.__init__(self,parent)
         dt = datetime.datetime.now()
         self.lineedit = QtGui.QLineEdit(dt.strftime('%d.%m.%Y'))
