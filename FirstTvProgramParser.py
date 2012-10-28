@@ -22,7 +22,7 @@ class FirstTvProgramParser(object):
         is_valid_date = date_format_regexp.match(self.day)
 
         if not is_valid_date:
-            raise ValueError("Bad date! Need dd.mm.yyy format!")
+            raise ValueError('Bad date! Need dd.mm.yyy format!')
 
         strURL = 'http://www.1tv.ru/shed/print/z0/ch1/'+self.day
         #strURL = 'http://www.1tv.ru/shed/print/z0/ch1/09.08.2010'
@@ -30,11 +30,11 @@ class FirstTvProgramParser(object):
         soup = BeautifulSoup(page.read())
         page.close()
 
-        datetag = soup.find("div",{'class':'title'}).find('h4')
+        datetag = soup.find('div',{'class':'title'}).find('h4')
         self.date = datetag.contents[0]+(datetag.find('span').contents[0])
 
-        times = [i.find('a').getText() for i in soup.findAll("div", {"class":"time"})]
-        names = [i.find('p').getText() for i in soup.findAll("div", {"class":"txt"})]
+        times = [i.find('a').getText() for i in soup.findAll('div', {'class':'time'})]
+        names = [i.find('p').getText() for i in soup.findAll('div', {'class':'txt'})]
 
         parsed_program = [times, names]
         self.program =  parsed_program
@@ -42,10 +42,10 @@ class FirstTvProgramParser(object):
     def print_program(self):
         print self.date
         for index, prog_time in enumerate(self.program[0]):
-            print "%s : %s" %(prog_time, self.program[1][index])
+            print '%s : %s' %(prog_time, self.program[1][index])
 
 
-if __name__ == "__main__":  #can not start from IDE because .encode('cp866')
+if __name__ == '__main__':  #can not start from IDE because .encode('cp866')
     day = raw_input(u'Введите дату через точку dd.mm.yyyy: '.encode('cp866'))
     #day ='10.10.2011'
     TVParser = FirstTvProgramParser()
