@@ -3,5 +3,8 @@ Rus1TvScheduleParser
 
 Just very simple parser of russian 1tv channel schedule
 
+For using you need to install PyQt4 and Beautiful Soup.
+just testing
 FirstTvProgramParser.py works from console. Just type a date you need and press Enter.
+
 TvParserGUI.pyw is a GUI for FirstTvProgramParser.py. Run it and type a date you need in upper textbox and press Enter to get results.
